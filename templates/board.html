@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Boggle{% endblock %}
+{% block content %}
+<section id="game">
+  <h1>Play Boggle!</h1>
+  <section id="dice-grid">
+    <div id="dice">
+      <!-- for each cell in the board, create a div and put the letter in there -->
+      <div class="die">A</div>
+      <div class="die">B</div>
+      <div class="die">C</div>
+      <div class="die">D</div>
+      <div class="die">E</div>
+      <div class="die">F</div>
+      <div class="die">G</div>
+      <div class="die">H</div>
+      <div class="die">I</div>
+      <div class="die">J</div>
+    </div>
+  </section>
+  <section class="word-check">
+    <form action="/word-check" method="POST">
+      <label for="word">Enter your word{{question}}</label>
+      <br>
+
+      <input type="text" id="word" name="word">
+
+      <button>Submit</button>
+    </form>
+  </section>
+</section>
+{% endblock %}
+
+
+
+
+<!-- SAMPLE TEMPLATE FORM CODE BELOW -->
+<!-- <form action="/answer" method="POST">
+  <label for="question-{{qid}}">{{question}}</label>
+  <br>
+  {% for choice in choices %}
+  <label for="question-{{qid}}">{{choice}}</label>
+  <input type="radio" id="question-{{qid}}" name="answer">
+  <br>
+  {% endfor %}
+  <button>Submit and Continue</button>
+</form> -->
