@@ -3,3 +3,31 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#dice {
+  display: grid;
+  grid-template-columns: 40px 40px 40px 40px 40px; 
+  grid-template-rows: 40px 40px 40px 40px 40px; 
+  justify-content: center;
+ }
+
+.die {
+  text-align: center;
+}
+
+#word-check-form,
+#messages {
+  margin: 0 auto;
+  width: max-content;
+}
+
+#feedback {
+  margin: 0 auto;
+  width: max-content;
+}
+
