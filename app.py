@@ -20,3 +20,11 @@ def show_game_board():
     return render_template("board.html", board=board)
 
 
+@app.route('/word-check')
+def check_word():
+    """Verify that the word is valid."""
+    word = request.args["word"]
+    board = session["board"]
+    result = boggle_game.check_valid_word(board, word)
+    resp = {"result": result}
+    return jsonify(resp)
