@@ -2,20 +2,15 @@
 {% block title %}Boggle{% endblock %}
 {% block content %}
 <section id="game">
-  <h1>Play Boggle!</h1>
+  <h1 class="title">Play Boggle!</h1>
   <section id="dice-grid">
-    <div id="dice">
       <!-- for each cell in the board, create a div and put the letter in there -->
-      <div class="die">A</div>
-      <div class="die">B</div>
-      <div class="die">C</div>
-      <div class="die">D</div>
-      <div class="die">E</div>
-      <div class="die">F</div>
-      <div class="die">G</div>
-      <div class="die">H</div>
-      <div class="die">I</div>
-      <div class="die">J</div>
+    <div id="dice">
+      {% for row in board %}
+      {% for char in row %}
+      <div>{{char}}</div>
+      {% endfor %}
+      {% endfor %}
     </div>
   </section>
   <section class="word-check">
