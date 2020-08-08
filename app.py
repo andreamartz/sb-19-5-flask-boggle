@@ -8,3 +8,15 @@ app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
 debug = DebugToolbarExtension(app)
 boggle_game = Boggle()
+
+
+@app.route('/')
+def show_game_board():
+    """Show game board."""
+    board = boggle_game.make_board()
+    print(board)
+    # Make the game board available in session
+    session['board'] = board
+    return render_template("board.html", board=board)
+
+
