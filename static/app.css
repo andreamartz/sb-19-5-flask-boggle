@@ -99,6 +99,12 @@ h1, .title {
   width: max-content;
 }
 
+#word, .submit {
+  font-size: 2rem;
+  font-family: Arial, sans-serif;
+  padding: .75rem;
+}
+
 #feedback {
   margin: 0 auto;
   width: max-content;
