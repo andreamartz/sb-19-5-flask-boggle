@@ -111,3 +111,14 @@ h1, .title {
 }
 
 /* GAME DATA & STATS */
+#game-data {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.game-datum {
+  display: flex;
+  justify-content: center;
+  width: 100%
+}
