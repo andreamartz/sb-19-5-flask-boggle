@@ -14,10 +14,12 @@ boggle_game = Boggle()
 def show_game_board():
     """Show game board."""
     board = boggle_game.make_board()
-    print(board)
-    # Make the game board available in session
+    plays = session.get("plays", 0)
+    high_score = session.get("high_score", 0)
+    # Make variables available in session
     session['board'] = board
-    return render_template("board.html", board=board)
+
+    return render_template("board.html", board=board, plays=plays, high_score=high_score)
 
 
 @app.route('/word-check')
@@ -27,4 +29,23 @@ def check_word():
     board = session["board"]
     result = boggle_game.check_valid_word(board, word)
     resp = {"result": result}
+    return jsonify(resp)
+
+
+@app.route('/post-score', methods=["POST"])
+def get_high_score():
+    """Check for a new high score"""
+    plays = session.get("plays", 0)
+    high_score = session.get("high_score", 0)
+    # raise
+
+    score = request.json["score"]
+
+    # set number of plays in the session
+    session['plays'] = plays + 1
+    # set high score in the session
+    session["high_score"] = max(score, high_score)
+    broke_record = score > high_score
+    resp = {"broke_record": broke_record, "high_score": high_score}
+
     return jsonify(resp)
