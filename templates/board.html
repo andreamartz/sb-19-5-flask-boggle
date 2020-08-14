@@ -2,46 +2,51 @@
 {% block title %}Boggle{% endblock %}
 {% block content %}
 <section id="game">
-  <h1>Play Boggle!</h1>
+  <h1 class="title">Play Boggle!</h1>
   <section id="dice-grid">
+    <!-- for each cell in the board, create a div and put the letter in there -->
     <div id="dice">
-      <!-- for each cell in the board, create a div and put the letter in there -->
-      <div class="die">A</div>
-      <div class="die">B</div>
-      <div class="die">C</div>
-      <div class="die">D</div>
-      <div class="die">E</div>
-      <div class="die">F</div>
-      <div class="die">G</div>
-      <div class="die">H</div>
-      <div class="die">I</div>
-      <div class="die">J</div>
+      {% for row in board %}
+      {% for char in row %}
+      <div class="scene">
+        <div class="cube">
+          <div class="die-face die-face-front"><span class="die-content">{{char}}</span></div>
+          <div class="die-face die-face-back"></div>
+          <div class="die-face die-face-right"></div>
+          <div class="die-face die-face-left"></div>
+          <div class="die-face die-face-top"></div>
+          <div class="die-face die-face-bottom"></div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endfor %}
     </div>
   </section>
-  <section class="word-check">
-    <form action="/word-check" method="POST">
-      <label for="word">Enter your word{{question}}</label>
+
+  <section id="word-check">
+    <form id="word-check-form">
+      <label for="word">Enter your word:</label>
       <br>
 
       <input type="text" id="word" name="word">
 
-      <button>Submit</button>
+      <button class="submit">Submit</button>
     </form>
+    <p id="messages">
+
+    </p>
+  </section>
+  <section id="game-data">
+    <p id="score" class="game-datum">
+      Score: 0
+    </p>
+    <p class="game-datum">Words Guessed:</p>
+    <ul id="words-guessed" class="game-datum">
+
+    </ul>
+    <p id="timer" class="game-datum"></p>
+    <p id="plays" class="game-datum">Played {{plays}} times</p>
+    <p id="high-score" class="game-datum">High Score: {{high_score}}</p>
   </section>
 </section>
 {% endblock %}
-
-
-
-
-<!-- SAMPLE TEMPLATE FORM CODE BELOW -->
-<!-- <form action="/answer" method="POST">
-  <label for="question-{{qid}}">{{question}}</label>
-  <br>
-  {% for choice in choices %}
-  <label for="question-{{qid}}">{{choice}}</label>
-  <input type="radio" id="question-{{qid}}" name="answer">
-  <br>
-  {% endfor %}
-  <button>Submit and Continue</button>
-</form> -->
