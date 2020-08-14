@@ -18,12 +18,18 @@ h1, .title {
 }
 
 /* GAME BOARD */
+
 #dice {
+  background-color:rgb(14, 4, 59);
+  border-radius: 5%;
   display: grid;
-  grid-template-columns: 40px 40px 40px 40px 40px; 
-  grid-template-rows: 40px 40px 40px 40px 40px; 
+  grid-template-columns: 100px 100px 100px 100px 100px; 
+  grid-template-rows: 100px 100px 100px 100px 100px; 
   justify-content: center;
-  grid-gap: 1px;
+  width: 45%;
+  margin: 0 auto;
+  padding: 2rem;
+  /* grid-gap: 1px; */
 }
 
 /* INDIVIDUAL DICE */
