@@ -18,17 +18,44 @@ h1, .title {
 }
 
 /* GAME BOARD */
+#dice-grid {
+  /* background-image: url('/static/boggle-image.jpg');
+  background-size: cover; */
+  background-color:rgba(0, 0, 0, 0.7);
+  margin: 0 auto;
+  max-width: 80vw;
+  overflow: hidden;
+  position: relative;
+}
+
+#dice-grid:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  opacity: 0.5;
+  background-image: url('/static/boggle-image.jpg');
+  background-size: cover;
+}
 
 #dice {
-  background-color:rgb(14, 4, 59);
+  /* background-color:rgb(14, 4, 59); */
   border-radius: 5%;
   display: grid;
-  grid-template-columns: 100px 100px 100px 100px 100px; 
-  grid-template-rows: 100px 100px 100px 100px 100px; 
+  grid: repeat(5, 1fr) / repeat(5, 1fr);
+  /* grid-template-columns: 100px 100px 100px 100px 100px; 
+  grid-template-rows: 100px 100px 100px 100px 100px;  */
   justify-content: center;
-  width: 45%;
+  /* width: 45%; */
+  max-width: calc(500px + 4rem);
   margin: 0 auto;
   padding: 2rem;
+  z-index: 2;
+  position: relative;
   /* grid-gap: 1px; */
 }
 
