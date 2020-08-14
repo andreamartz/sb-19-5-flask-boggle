@@ -38,8 +38,6 @@ def get_high_score():
     """Check for a new high score"""
     plays = session.get("plays", 0)
     high_score = session.get("high_score", 0)
-    # raise
-
     score = request.json["score"]
 
     # set number of plays in the session
