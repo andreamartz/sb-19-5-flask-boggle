@@ -8,7 +8,16 @@
     <div id="dice">
       {% for row in board %}
       {% for char in row %}
-      <div class="die"><span class="die-content">{{char}}</span></div>
+      <div class="scene">
+        <div class="cube">
+          <div class="die-face die-face-front"><span class="die-content">{{char}}</span></div>
+          <div class="die-face die-face-back"></div>
+          <div class="die-face die-face-right"></div>
+          <div class="die-face die-face-left"></div>
+          <div class="die-face die-face-top"></div>
+          <div class="die-face die-face-bottom"></div>
+        </div>
+      </div>
       {% endfor %}
       {% endfor %}
     </div>
